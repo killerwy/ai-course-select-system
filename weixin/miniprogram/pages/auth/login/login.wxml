@@ -1,0 +1,16 @@
+<view class="page login-page">
+  <view class="hero"><text class="title">CourseFlow</text><text class="subtitle">Course selection and academic operations</text></view>
+  <view class="role-switch"><button size="mini" type="{{role === 'STUDENT' ? 'primary' : 'default'}}" bindtap="chooseStudent">Student</button><button size="mini" type="{{role === 'ACADEMIC' ? 'primary' : 'default'}}" bindtap="chooseAcademic">Academic</button></view>
+  <form class="card" bindsubmit="submit">
+    <view class="field"><text class="field-label">Username</text><input class="input" name="username" maxlength="50" placeholder="Username" /></view>
+    <view class="field"><text class="field-label">Password</text><input class="input" name="password" password maxlength="128" placeholder="Password" /></view>
+    <block wx:if="{{registerMode}}">
+      <view class="field"><text class="field-label">Student no</text><input class="input" name="student_no" maxlength="20" placeholder="Student number" /></view>
+      <view class="field"><text class="field-label">Major</text><input class="input" name="major" maxlength="100" placeholder="Major" /></view>
+      <view class="field"><text class="field-label">Grade</text><input class="input" name="grade" type="number" value="1" /></view>
+    </block>
+    <view class="form-error" wx:if="{{error}}">{{error}}</view>
+    <button class="primary-button" form-type="submit" loading="{{busy}}" disabled="{{busy}}">{{registerMode ? 'Register and login' : 'Login'}}</button>
+    <button wx:if="{{role === 'STUDENT'}}" class="link-button" bindtap="toggleRegister">{{registerMode ? 'Back to login' : 'Register student account'}}</button>
+  </form>
+</view>

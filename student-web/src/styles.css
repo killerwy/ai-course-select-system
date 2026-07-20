@@ -1,0 +1,78 @@
+:root { font-family: Inter, "PingFang SC", system-ui, sans-serif; color: #172033; background: #f4f7fb; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+a { color: inherit; text-decoration: none; }
+.app-shell { min-height: 100vh; display: grid; grid-template-columns: 230px 1fr; }
+.sidebar { position: sticky; top: 0; height: 100vh; padding: 26px 18px; display: flex; flex-direction: column; background: #102a43; color: white; }
+.brand { display: flex; align-items: center; gap: 12px; padding: 0 10px 28px; }
+.brand-mark { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: #2dd4bf; color: #083344; font-weight: 900; }
+.brand strong, .brand small, .sidebar-footer strong, .sidebar-footer small { display: block; }
+.brand small, .sidebar-footer small { color: #9fb3c8; margin-top: 3px; }
+.sidebar nav { display: grid; gap: 6px; }
+.sidebar nav a { padding: 11px 13px; border-radius: 10px; color: #c9d7e5; }
+.sidebar nav a:hover, .sidebar nav a.router-link-active { background: #1c466a; color: white; }
+.sidebar-footer { margin-top: auto; padding: 16px 10px 0; border-top: 1px solid #294c6a; display: flex; align-items: center; justify-content: space-between; }
+.sidebar-footer .el-button { color: #c9d7e5; }
+.content { width: 100%; max-width: 1240px; padding: 38px 44px 70px; }
+.page-title { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; margin-bottom: 24px; }
+.page-title-tags { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.eyebrow { margin: 0; color: #0f9d8a; font-size: 12px; font-weight: 800; letter-spacing: .14em; }
+h1 { margin: 7px 0 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.15; }
+h3 { margin: 14px 0 8px; }
+.muted { color: #6b7c93; }
+.live-sync-status { display: flex; align-items: center; gap: 6px; margin: 8px 0 0; color: #627d98; font-size: 13px; }
+.live-dot { width: 8px; height: 8px; border-radius: 50%; background: #2dd4bf; box-shadow: 0 0 0 3px rgba(45,212,191,.16); }
+.live-dot.syncing { background: #f59e0b; box-shadow: 0 0 0 3px rgba(245,158,11,.16); }
+.stat-grid, .quick-grid, .course-grid, .recommendations { display: grid; gap: 16px; }
+.stat-grid { grid-template-columns: repeat(3, 1fr); }
+.stat-label { color: #6b7c93; margin-top: 0; }
+.stat-value { font-size: 34px; }
+.stat-value.danger, .violation { color: #dc2626; }
+.quick-grid { grid-template-columns: repeat(3, 1fr); margin-top: 20px; }
+.quick-card { padding: 20px; border: 1px solid #d9e2ec; border-radius: 14px; background: white; transition: transform .2s, border-color .2s; }
+.quick-card:hover { transform: translateY(-2px); border-color: #2dd4bf; }
+.quick-card strong, .quick-card span { display: block; }
+.quick-card span { margin-top: 7px; color: #6b7c93; }
+.course-grid, .recommendations { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .course-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 20px; }
+  .course-search { width: min(520px, 100%); margin-bottom: 0; }
+  .course-filter-select { width: 180px; }
+.course-link .el-card, .recommendation-card { height: 100%; }
+.course-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.form-card, .detail-card { margin-bottom: 20px; }
+.form-card .el-alert { margin-bottom: 18px; }
+.recommendation-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.recommendations { margin-top: 18px; }
+.rank { color: #0f9d8a; font-weight: 800; }
+.explanation { min-height: 150px; }
+.explanation .label { margin-bottom: 4px; font-size: 12px; font-weight: 800; color: #52667a; text-transform: uppercase; }
+.explanation ul { margin-top: 4px; padding-left: 20px; color: #40566d; }
+.uncertainties { color: #7c5d27 !important; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.actions .el-button + .el-button { margin-left: 0; }
+.detail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 24px 0; }
+.detail-grid div { padding: 16px; border-radius: 12px; background: #f4f7fb; }
+.detail-grid span, .detail-grid strong { display: block; }
+.detail-grid span { color: #6b7c93; }
+.detail-grid strong { margin-top: 6px; font-size: 22px; }
+.back-link { display: inline-block; margin-bottom: 16px; color: #0f766e; }
+.schedule-board { display: grid; grid-template-columns: repeat(7, minmax(140px, 1fr)); gap: 12px; margin-top: 18px; overflow-x: auto; }
+.schedule-day { min-height: 240px; padding: 12px; border: 1px solid #d9e2ec; border-radius: 14px; background: white; }
+.schedule-day h3 { margin: 0 0 12px; color: #334e68; }
+.lesson-card { display: grid; gap: 4px; margin-bottom: 10px; padding: 12px; border-left: 4px solid #0f9d8a; border-radius: 10px; background: #e6fffa; }
+.lesson-card span { color: #334e68; }
+.lesson-card small { color: #627d98; }
+.schedule-empty { font-size: 13px; }
+.login-page { min-height: 100vh; display: grid; place-items: center; padding: 24px; background: radial-gradient(circle at top left, #ccfbf1, transparent 38%), #eef3f8; }
+.login-card { width: min(430px, 100%); padding: 38px; border: 1px solid #d9e2ec; border-radius: 20px; background: rgba(255,255,255,.95); box-shadow: 0 24px 60px rgba(16,42,67,.12); }
+.login-card h1 { margin-bottom: 10px; }
+.unified-login-card { width: min(500px, 100%); }
+.role-switch { margin: 24px 0; padding: 14px; border: 1px solid #d9e2ec; border-radius: 14px; background: #f7fafc; text-align: center; }
+.role-switch .el-radio-group { width: 100%; display: grid; grid-template-columns: 1fr 1fr; }
+.role-switch .el-radio-button, .role-switch .el-radio-button__inner { width: 100%; }
+.role-switch p { margin: 10px 0 0; color: #627d98; font-size: 13px; }
+.auth-mode-switch { display: flex; gap: 8px; margin: -8px 0 12px; }
+.full-button { width: 100%; }
+.demo-hint { margin: 18px 0 0; color: #829ab1; text-align: center; font-size: 13px; }
+@media (max-width: 1100px) { .schedule-board { grid-template-columns: repeat(4, minmax(150px, 1fr)); } }
+@media (max-width: 800px) { .app-shell { display: block; } .sidebar { position: static; width: 100%; height: auto; } .sidebar nav { grid-template-columns: repeat(2, 1fr); } .sidebar-footer { margin-top: 16px; } .content { padding: 28px 18px 60px; } .stat-grid, .quick-grid { grid-template-columns: 1fr; } .schedule-board { grid-template-columns: repeat(2, minmax(150px, 1fr)); } }

@@ -1,0 +1,37 @@
+.login-page {
+  padding-top: 100rpx;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 48rpx;
+}
+
+.hero .title {
+  font-size: 56rpx;
+}
+
+.role-switch {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 24rpx;
+}
+
+.role-switch button {
+  flex: 1;
+}
+
+.form-error {
+  margin-bottom: 20rpx;
+  color: #b52d2d;
+  font-size: 24rpx;
+}
+
+.link-button {
+  margin-top: 16rpx;
+  background: transparent;
+  color: #2768ff;
+  font-size: 26rpx;
+}
+

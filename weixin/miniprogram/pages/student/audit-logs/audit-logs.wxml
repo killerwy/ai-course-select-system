@@ -1,0 +1,9 @@
+<view class="page">
+  <async-state phase="{{phase}}" message="{{error || '暂无本人审计记录'}}" bind:retry="retry">
+    <view class="card audit" wx:for="{{logs}}" wx:key="id">
+      <view class="row-between"><text>{{item.action}}</text><text class="muted">{{item.created_at}}</text></view>
+      <view class="muted">{{item.resource_type}} · {{item.resource_id}}</view>
+      <view class="reason" wx:if="{{item.reason}}">{{item.reason}}</view>
+    </view>
+  </async-state>
+</view>

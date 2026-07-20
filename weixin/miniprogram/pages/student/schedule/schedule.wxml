@@ -1,0 +1,22 @@
+<view class="page">
+  <async-state phase="{{phase}}" message="{{error || '当前没有已选课程'}}" stale="{{stale}}" bind:retry="retry">
+    <view class="card schedule-table">
+      <view class="schedule-header">
+        <view class="schedule-time-header">时间</view>
+        <view class="schedule-day-header" wx:for="{{weekdays}}" wx:for-item="day" wx:key="value">{{day.label}}</view>
+      </view>
+      <view class="schedule-row" wx:for="{{rows}}" wx:for-item="row" wx:key="key">
+        <view class="schedule-time">{{row.time}}</view>
+        <view class="schedule-cell" wx:for="{{row.cells}}" wx:for-item="cell" wx:key="weekday">
+          <view class="lesson" wx:for="{{cell.lessons}}" wx:for-item="lesson" wx:key="key">
+            <view class="lesson-name">{{lesson.display_name}}</view>
+            <view class="lesson-code" wx:if="{{lesson.display_code}}">{{lesson.display_code}}</view>
+            <view class="lesson-teacher" wx:if="{{lesson.teacher_name}}">{{lesson.teacher_name}}</view>
+            <view class="lesson-room" wx:if="{{lesson.room}}">{{lesson.room}}</view>
+          </view>
+          <view class="schedule-empty" wx:if="{{!cell.lessons.length}}">-</view>
+        </view>
+      </view>
+    </view>
+  </async-state>
+</view>

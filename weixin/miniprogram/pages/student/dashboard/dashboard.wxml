@@ -1,0 +1,23 @@
+<view class="page">
+  <view class="card">
+    <view class="row-between">
+      <view>
+        <view class="title">你好，{{user.username || '同学'}}</view>
+        <view class="subtitle">数据以服务端最新状态为准</view>
+      </view>
+      <button size="mini" bindtap="logout">退出</button>
+    </view>
+  </view>
+  <async-state phase="{{phase}}" message="{{error}}" bind:retry="retry">
+    <view class="card stats">
+      <view><text class="metric">{{summary.enrolled}}</text><text class="muted">已选课程</text></view>
+      <view><text class="metric">{{summary.conflictReview}}</text><text class="muted">冲突复核</text></view>
+      <view><text class="metric">{{summary.waiting}}</text><text class="muted">候补中</text></view>
+    </view>
+  </async-state>
+  <view class="grid">
+    <view class="nav-card" wx:for="{{navigation}}" wx:key="url" data-url="{{item.url}}" bindtap="navigate">
+      <text>{{item.label}}</text>
+    </view>
+  </view>
+</view>

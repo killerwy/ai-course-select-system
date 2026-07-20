@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "pages/auth/login/login",
+    "pages/student/dashboard/dashboard",
+    "pages/student/courses/courses",
+    "pages/student/course-detail/course-detail",
+    "pages/student/recommendations/recommendations",
+    "pages/student/enrollments/enrollments",
+    "pages/student/schedule/schedule",
+    "pages/student/audit-logs/audit-logs",
+    "pages/academic/courses/courses",
+    "pages/academic/run-detail/run-detail",
+    "pages/academic/approvals/approvals",
+    "pages/academic/audit-logs/audit-logs"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#f6f8fc",
+    "backgroundColor": "#f6f8fc",
+    "navigationBarTitleText": "CourseFlow"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,30 @@
+{
+  "appid": "your-appid-here",
+  "projectname": "ai-course-select-system",
+  "description": "AI 选课系统小程序",
+  "compileType": "miniprogram",
+  "miniprogramRoot": "miniprogram/",
+  "srcMiniprogramRoot": "miniprogram/",
+  "libVersion": "2.32.3",
+  "simulatorType": "wechat",
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "setting": {
+    "useCompilerPlugins": ["typescript", "sass"],
+    "es6": false,
+    "enhance": false,
+    "postcss": false,
+    "minified": false,
+    "uploadWithSourceMap": true,
+    "ignoreUploadUnusedFiles": true,
+    "compileHotReLoad": false,
+    "skylineRenderEnable": true
+  },
+  "condition": {},
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  }
+}

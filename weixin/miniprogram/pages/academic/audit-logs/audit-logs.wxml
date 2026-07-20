@@ -1,0 +1,16 @@
+<view class="page">
+  <view class="card">
+    <input class="input" data-field="courseId" value="{{courseId}}" bindinput="onInput" placeholder="Course ID (optional)" />
+    <input class="input" data-field="runId" value="{{runId}}" bindinput="onInput" placeholder="Run ID (optional)" />
+    <input class="input" data-field="action" value="{{action}}" bindinput="onInput" placeholder="Action (optional)" />
+    <button class="primary" bindtap="load">Filter</button>
+  </view>
+  <async-state phase="{{phase}}" message="{{error || 'No audit records'}}" bind:retry="retry">
+    <view wx:for="{{logs}}" wx:key="id" class="card">
+      <view class="row-between"><view class="title">{{item.action}}</view><view class="muted">{{item.actor_role}}</view></view>
+      <view class="muted">{{item.resource_type}} / {{item.resource_id}}</view>
+      <view class="muted">Request: {{item.request_id}} / {{item.created_at}}</view>
+      <view wx:if="{{item.reason}}" class="subtitle">Reason: {{item.reason}}</view>
+    </view>
+  </async-state>
+</view>

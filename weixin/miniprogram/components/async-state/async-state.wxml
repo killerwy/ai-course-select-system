@@ -1,0 +1,9 @@
+<view class="state" wx:if="{{phase === 'loading'}}">正在加载…</view>
+<view class="state error" wx:elif="{{phase === 'error'}}">
+  <text>{{message || '加载失败'}}</text>
+  <button size="mini" bindtap="retry">重试</button>
+</view>
+<view class="state" wx:elif="{{phase === 'empty'}}">{{message || '暂无数据'}}</view>
+<view class="state stale" wx:elif="{{stale}}">当前显示最近一次成功数据</view>
+<slot wx:if="{{phase === 'data' || phase === 'idle'}}"></slot>
+

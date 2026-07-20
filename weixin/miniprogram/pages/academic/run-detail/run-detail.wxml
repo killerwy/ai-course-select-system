@@ -1,0 +1,13 @@
+<view class="page">
+  <async-state phase="{{phase}}" message="{{error || 'No run'}}" bind:retry="retry">
+    <view wx:if="{{run}}" class="card">
+      <view class="row-between"><view class="title">Run {{run.id}}</view><status-tag status="{{run.status}}" /></view>
+      <view class="subtitle">{{progress}} / course {{run.course_id}}</view>
+      <view class="grid"><view>Checked {{run.summary.checked}}</view><view>Promoted {{run.summary.promoted}}</view><view>Skipped {{run.summary.skipped}}</view><view>Conflicts {{run.summary.conflicts}}</view><view>Waiting {{run.summary.waiting}}</view><view>Errors {{run.summary.errors}}</view></view>
+    </view>
+    <view wx:for="{{run.results}}" wx:key="entity_id" class="card">
+      <view class="row-between"><view>{{item.entity_type}} / {{item.entity_id}}</view><status-tag status="{{item.new_status}}" /></view>
+      <view class="muted">Reason: {{item.reason_code}}</view>
+    </view>
+  </async-state>
+</view>

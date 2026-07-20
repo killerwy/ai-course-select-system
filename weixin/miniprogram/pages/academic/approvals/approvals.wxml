@@ -1,0 +1,19 @@
+<view class="page">
+  <view class="tabs"><view class="tab {{mode === 'course' ? 'active' : ''}}" data-mode="course" bindtap="switchMode">Course changes</view><view class="tab {{mode === 'exception' ? 'active' : ''}}" data-mode="exception" bindtap="switchMode">Enrollment exceptions</view></view>
+  <async-state phase="{{phase}}" message="{{error || 'No pending approvals'}}" bind:retry="retry">
+    <block wx:if="{{mode === 'course'}}">
+      <view wx:for="{{operations}}" wx:key="id" class="card">
+        <view class="row-between"><view class="title">{{item.operation}} / {{item.id}}</view><status-tag status="{{item.status}}" /></view>
+        <view class="muted">Course: {{item.course_id || 'new'}} / requester: {{item.requester_id}}</view>
+        <view wx:if="{{item.status === 'PENDING'}}" class="action-row"><button size="mini" data-id="{{item.id}}" data-type="course" data-decision="approve" bindtap="decide">Approve</button><button size="mini" data-id="{{item.id}}" data-type="course" data-decision="reject" bindtap="decide">Reject</button></view>
+      </view>
+    </block>
+    <block wx:else>
+      <view wx:for="{{exceptions}}" wx:key="id" class="card">
+        <view class="row-between"><view class="title">{{item.student_id}} / {{item.course_id}}</view><status-tag status="{{item.status}}" /></view>
+        <view class="muted">Rules: {{item.rule_violations}}</view>
+        <view wx:if="{{item.status === 'PENDING'}}" class="action-row"><button size="mini" data-id="{{item.id}}" data-type="exception" data-decision="approve" bindtap="decide">Approve</button><button size="mini" data-id="{{item.id}}" data-type="exception" data-decision="reject" bindtap="decide">Reject</button></view>
+      </view>
+    </block>
+  </async-state>
+</view>

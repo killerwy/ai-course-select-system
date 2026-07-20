@@ -1,0 +1,32 @@
+.status {
+  display: inline-flex;
+  padding: 8rpx 14rpx;
+  border-radius: 999rpx;
+  background: #edf1f7;
+  color: #526078;
+  font-size: 22rpx;
+}
+
+.status-OPEN,
+.status-ENROLLED,
+.status-SUCCEEDED,
+.status-APPROVED {
+  background: #e1f7eb;
+  color: #147448;
+}
+
+.status-PENDING,
+.status-RUNNING,
+.status-WAITING,
+.status-PENDING_APPROVAL {
+  background: #fff2cf;
+  color: #845e00;
+}
+
+.status-FAILED,
+.status-CANCELLED,
+.status-REJECTED {
+  background: #fde5e5;
+  color: #a92f2f;
+}
+

@@ -1,0 +1,27 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+}
+
+.nav-card {
+  padding: 36rpx 22rpx;
+  border-radius: 18rpx;
+  background: #ffffff;
+  box-shadow: 0 8rpx 24rpx rgba(24, 43, 77, 0.06);
+  color: #27466f;
+  text-align: center;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.metric {
+  display: block;
+  color: #2768ff;
+  font-size: 42rpx;
+  font-weight: 700;
+}

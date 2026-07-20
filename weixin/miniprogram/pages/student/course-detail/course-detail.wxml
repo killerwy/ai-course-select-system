@@ -1,0 +1,25 @@
+<view class="page">
+  <async-state phase="{{phase}}" message="{{error || '课程不存在'}}" bind:retry="retry">
+    <view class="card" wx:if="{{course}}">
+      <view class="row-between">
+        <view>
+          <view class="title">{{course.name}}</view>
+          <view class="subtitle">{{course.code}} · {{course.teacher_name}}</view>
+        </view>
+        <status-tag status="{{course.status}}" />
+      </view>
+      <view class="detail-row">学分：{{course.credits}}</view>
+      <view class="detail-row">容量：{{course.enrolled_count}}/{{course.capacity}}，候补 {{course.waitlist_count}}</view>
+      <view class="detail-row" wx:for="{{scheduleText}}" wx:key="*this">{{item}}</view>
+    </view>
+    <view class="card" wx:if="{{course && prerequisites.length}}">
+      <view class="section-title">先修课程</view>
+      <view class="muted" wx:for="{{prerequisites}}" wx:key="*this">{{item}}</view>
+    </view>
+    <view class="card actions" wx:if="{{course}}">
+      <button class="primary-button" data-type="ENROLL" bindtap="requestEnrollment" loading="{{busy}}" disabled="{{busy}}">选课</button>
+      <button data-type="WAITLIST" bindtap="requestEnrollment" disabled="{{busy}}">加入候补</button>
+      <button class="danger-button" data-type="DROP" bindtap="requestEnrollment" disabled="{{busy}}">退课/退出候补</button>
+    </view>
+  </async-state>
+</view>

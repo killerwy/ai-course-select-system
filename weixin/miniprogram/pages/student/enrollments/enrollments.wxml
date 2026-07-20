@@ -1,0 +1,19 @@
+<view class="page">
+  <view class="card summary">
+    <view><text class="metric">{{summary.enrolled}}</text><text class="muted">已选</text></view>
+    <view><text class="metric">{{summary.conflictReview}}</text><text class="muted">冲突复核</text></view>
+    <view><text class="metric">{{summary.waiting}}</text><text class="muted">候补中</text></view>
+  </view>
+  <async-state phase="{{phase}}" message="{{error || '暂无选课记录'}}" bind:retry="retry">
+    <view class="section-title">选课记录</view>
+    <view class="card record" wx:for="{{enrollments}}" wx:key="id">
+      <view class="row-between"><view><text class="course-name">{{item.course_name}}</text><text class="course-code" wx:if="{{item.course_code}}">{{item.course_code}}</text></view><status-tag status="{{item.status}}" /></view>
+      <button wx:if="{{item.status === 'ENROLLED' || item.status === 'CONFLICT_REVIEW'}}" size="mini" data-id="{{item.course_id}}" data-type="DROP" bindtap="request" loading="{{busyId === item.course_id}}" disabled="{{busyId}}">退课</button>
+    </view>
+    <view class="section-title" wx:if="{{waitlists.length}}">候补记录</view>
+    <view class="card record" wx:for="{{waitlists}}" wx:key="id">
+      <view class="row-between"><view><text class="course-name">{{item.course_name}}</text><text class="course-code" wx:if="{{item.course_code}}">{{item.course_code}}</text><text class="course-position">位置 {{item.position || '-'}}</text></view><status-tag status="{{item.status}}" /></view>
+      <button wx:if="{{item.status === 'WAITING'}}" size="mini" data-id="{{item.course_id}}" data-type="DROP" bindtap="request" loading="{{busyId === item.course_id}}" disabled="{{busyId}}">退出候补</button>
+    </view>
+  </async-state>
+</view>

@@ -1,0 +1,15 @@
+<view class="page">
+  <view class="card">
+    <input class="input" value="{{keyword}}" bindinput="onKeywordInput" placeholder="Search by code, name or teacher" />
+    <view class="filters"><picker mode="selector" range="{{statuses}}" bindchange="onStatusChange"><view class="chip">Status: {{status || 'ALL'}}</view></picker><picker mode="selector" range="{{weekdays}}" bindchange="onWeekdayChange"><view class="chip">Weekday: {{weekday || 'ALL'}}</view></picker><picker mode="selector" range="{{periods}}" bindchange="onPeriodChange"><view class="chip">Period: {{period || 'ALL'}}</view></picker></view>
+  </view>
+  <async-state phase="{{phase}}" message="{{error || 'No matching courses'}}" stale="{{stale}}" bind:retry="retry">
+    <view class="card course-card" wx:for="{{visibleCourses}}" wx:key="id" data-id="{{item.id}}" bindtap="openDetail">
+      <view class="row-between"><view class="course-code">{{item.code}}</view><status-tag status="{{item.status}}" /></view>
+      <view class="course-name">{{item.name}}</view>
+      <view class="muted">{{item.teacher_name}} / {{item.credits}} credits</view>
+      <view class="muted">{{item.enrolled_count}}/{{item.capacity}} / waitlist {{item.waitlist_count}}</view>
+      <view class="muted" wx:for="{{item.schedules}}" wx:key="weekday">Day {{item.weekday}} / {{item.room}}</view>
+    </view>
+  </async-state>
+</view>

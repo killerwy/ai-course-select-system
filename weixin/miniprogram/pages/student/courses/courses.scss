@@ -1,0 +1,20 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 18rpx;
+}
+
+.course-card {
+  position: relative;
+}
+
+.course-code {
+  color: #2768ff;
+  font-size: 24rpx;
+}
+
+.course-name {
+  margin: 12rpx 0;
+  font-size: 32rpx;
+  font-weight: 600;
+}

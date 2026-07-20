@@ -1,0 +1,12 @@
+{
+  "name": "ai-course-select-weixin",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI 选课系统微信小程序",
+  "scripts": {
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "miniprogram-api-typings": "^5.2.1"
+  }
+}

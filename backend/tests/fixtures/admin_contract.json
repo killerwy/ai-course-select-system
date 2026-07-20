@@ -1,0 +1,17 @@
+{
+  "base_url": "http://localhost:8000/api/v1",
+  "success_keys": ["data", "meta"],
+  "error_keys": ["error", "meta"],
+  "admin_paths": [
+    "/admin/courses",
+    "/admin/courses/{course_id}/expand",
+    "/admin/courses/{course_id}/reschedule",
+    "/admin/courses/{course_id}/cancel",
+    "/admin/courses/{course_id}/recalculate",
+    "/admin/recalculation-runs/{run_id}",
+    "/admin/exception-approvals",
+    "/admin/audit-logs"
+  ],
+  "run_statuses": ["PENDING", "RUNNING", "SUCCEEDED", "FAILED"],
+  "waitlist_order": ["joined_at", "id"]
+}

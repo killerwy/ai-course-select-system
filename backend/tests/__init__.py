@@ -1,0 +1,2 @@
+"""C-owned contract tests."""
+

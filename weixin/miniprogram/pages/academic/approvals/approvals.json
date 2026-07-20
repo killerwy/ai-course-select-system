@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "async-state": "/components/async-state/async-state",
+    "status-tag": "/components/status-tag/status-tag"
+  },
+  "navigationBarTitleText": "审批中心"
+}

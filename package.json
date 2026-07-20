@@ -1,0 +1,19 @@
+{
+  "name": "ai-course-select-system",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "student-web",
+    "admin-web"
+  ],
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:smoke": "node scripts/dev.mjs --smoke",
+    "build": "npm run build --prefix student-web && npm run build --prefix admin-web",
+    "test": "node scripts/test.mjs",
+    "test:dev-config": "node --test scripts/dev-config.test.mjs",
+    "generate-openapi": "node scripts/generate-openapi.mjs"
+  }
+}

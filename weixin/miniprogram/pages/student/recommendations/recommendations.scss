@@ -1,0 +1,41 @@
+.notice {
+  margin-bottom: 18rpx;
+  padding: 18rpx;
+  border-radius: 14rpx;
+  background: #fff5d8;
+  color: #845e00;
+  font-size: 24rpx;
+}
+
+.recommendation {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.rank {
+  color: #2768ff;
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.decision {
+  font-size: 24rpx;
+}
+
+.eligible {
+  color: #147448;
+}
+
+.blocked {
+  color: #a92f2f;
+}
+
+.reason {
+  color: #28364f;
+}
+
+.form-error {
+  margin-bottom: 16rpx;
+  color: #b52d2d;
+}

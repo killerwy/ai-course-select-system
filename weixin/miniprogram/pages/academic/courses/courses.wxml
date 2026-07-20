@@ -1,0 +1,28 @@
+<view class="page">
+  <view class="card">
+    <view class="title">Course management</view>
+    <input class="input" value="{{keyword}}" bindinput="onKeywordInput" bindconfirm="load" placeholder="Search by code or name" />
+    <picker mode="selector" range="{{statuses}}" bindchange="onStatusChange"><view class="chip">Status: {{status || 'ALL'}}</view></picker>
+  </view>
+  <view class="card">
+    <view class="section-title">Submit course (approval required)</view>
+    <input class="input" data-field="createCode" value="{{createCode}}" bindinput="onCreateInput" placeholder="Course code" />
+    <input class="input" data-field="createName" value="{{createName}}" bindinput="onCreateInput" placeholder="Course name" />
+    <input class="input" data-field="createTeacher" value="{{createTeacher}}" bindinput="onCreateInput" placeholder="Teacher" />
+    <input class="input" type="number" data-field="createCapacity" value="{{createCapacity}}" bindinput="onCreateInput" placeholder="Capacity" />
+    <button class="primary" bindtap="createCourse">Submit</button>
+  </view>
+  <async-state phase="{{phase}}" message="{{error || 'No courses'}}" stale="{{stale}}" bind:retry="retry">
+    <view class="card" wx:for="{{courses}}" wx:key="id">
+      <view class="row-between"><view class="course-code">{{item.code}}</view><status-tag status="{{item.status}}" /></view>
+      <view class="course-name">{{item.name}}</view>
+      <view class="muted">{{item.teacher_name}} / {{item.enrolled_count}}/{{item.capacity}} / v{{item.version}}</view>
+      <view class="action-row">
+        <button size="mini" data-id="{{item.id}}" data-action="expand" bindtap="action">Expand</button>
+        <button size="mini" data-id="{{item.id}}" data-action="reschedule" bindtap="action">Reschedule</button>
+        <button size="mini" data-id="{{item.id}}" data-action="recalculate" bindtap="action">Recalculate</button>
+        <button size="mini" data-id="{{item.id}}" data-action="cancel" bindtap="action">Cancel</button>
+      </view>
+    </view>
+  </async-state>
+</view>
